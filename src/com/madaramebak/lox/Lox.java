@@ -43,20 +43,23 @@ public class Lox {
     }
   }
 
+// For now, just print the tokens.
   private static void run(String source) {
     Scanner scanner = new Scanner(source);
     List<Token> tokens = scanner.scanTokens();
 
-    // For now, just print the tokens.
+    
     for (Token token : tokens) {
       System.out.println(token);
     }
   }
 
+    // Reports error at specified line
   static void error(int line, String message) {
     report(line, "", message);
   }
 
+// Prints an error message
   private static void report(int line, String where,
                              String message) {
     System.err.println(
