@@ -1,10 +1,7 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.List;
+import java.io.*;
+import java.nio.charset.*;
+import java.nio.file.*;
+import java.util.*;
 
 public class Lox {
     static boolean hadError = false;
@@ -37,7 +34,9 @@ public class Lox {
     for (;;) { 
       System.out.print("> ");
       String line = reader.readLine();
-      if (line == null) break;
+      if (line == null){
+        break;
+      }
       run(line);
       hadError = false;
     }
@@ -60,10 +59,8 @@ public class Lox {
   }
 
 // Prints an error message
-  private static void report(int line, String where,
-                             String message) {
-    System.err.println(
-        "[line " + line + "] Error" + where + ": " + message);
+  private static void report(int line, String where,  String message) {
+    System.err.println("[line " + line + "] Error" + where + ": " + message);
     hadError = true;
   }
 
