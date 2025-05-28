@@ -1,3 +1,6 @@
+package com.madaramebak.lox;
+
+
 class Token {
   final TokenType type;
   final String lexeme;
